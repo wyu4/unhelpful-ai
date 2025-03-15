@@ -9,3 +9,5 @@ function sendPrompt(prompt) {
 
     debounce = false;
 }
+
+console.log('Hello world!');
