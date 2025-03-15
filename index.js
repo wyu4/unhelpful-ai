@@ -9,3 +9,5 @@ app.get('/', function(req, res) {
 app.listen(port, () => {
     console.log(`Now listening to http://localhost:${port}`);
 }); 
+
+// To start, run 'node index.js'
