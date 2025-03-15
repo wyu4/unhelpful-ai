@@ -43,7 +43,7 @@ app.get('/completion', (req, res) => {
     });
 });
 
-console.log('Pushing index.html');
+console.log('Pushing main page');
 app.get('/', function(req, res) {
     res.sendFile('index.html', {root: __dirname})
 })

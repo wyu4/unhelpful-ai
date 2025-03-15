@@ -1,0 +1,39 @@
+body{
+    background-color: #757575;
+    font-family: Arial, sans-serif;
+}
+h1 {
+    color: #ffffff;
+    text-align: center;
+}
+form{
+    margin-top: 100px;
+    text-align: center;
+
+}
+
+.topnav{
+    background-color: #0000a8;
+    overflow: hidden;
+}
+
+.topnav label{
+    color: white;
+    text-align: left;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    float: left;
+}
+
+.topnav button{
+    background-color: #ffffff;
+    color: white;
+    text-align: right;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    float: right;
+    border: none;
+    cursor: pointer;
+}
