@@ -12,5 +12,3 @@ function getCompletion(userInput, callback) {
         callback('ummmm');
     });
 }
-
-getCompletion('Hello?', (data) => console.log(data));
