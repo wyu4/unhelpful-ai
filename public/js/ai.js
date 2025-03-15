@@ -1,4 +1,4 @@
-function getCompletion(userInput, callback) {
+async function generateCompletion(userInput, callback) {
     fetch('/completion', {
         method: 'GET',
         headers: {
