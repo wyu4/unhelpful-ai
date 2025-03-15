@@ -17,8 +17,10 @@ class AIRequestHandler {
 
     async sendToAI(request) {
         try {
-            const response = await this.aiInstance.getResponse(request);
-            this.sessionManager.logConversation(userInput, response);
+            const response = await this.aiInstance.getResponse(request, (response) => {
+                this.sessionManager.logConversation(userInput, response);
+            });
+            
             return response;
         } catch (error) {
             console.error("Error processing AI request:", error);
