@@ -17,7 +17,7 @@ class AIRequestHandler {
 
     async sendToAI(request) {
         try {
-            const response = await this.aiInstance.getResponse(request, (response) => {
+            const response = await generateCompletion(request, (response) => {
                 this.sessionManager.logConversation(userInput, response);
             });
             
