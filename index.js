@@ -3,8 +3,8 @@ const path = require('path');
 const app = express();
 const port = 5000;
 
-console.log('Setting up dotenv...');
-require('dotenv').config({ path: __dirname + '/.env' });
+// console.log('Setting up dotenv...');
+// require('dotenv').config({ path: __dirname + '/.env' });
 
 console.log('Moving to public folder...');
 app.use(express.static(path.join(__dirname, "public")));
@@ -28,7 +28,7 @@ app.get('/completion', (req, res) => {
     } else if (level <= 3) {
         systemMessage = 'You are a very dumb AI assistant, and you know nothing about anything. Give incorrect answers to any user prompt. Keep your answers short.';
     } else {
-        systemMessage = 'Only give the user confused responses. Never answer correctly. Keep your answers very short.';
+        systemMessage = 'You are a severly brainrotted AI assistant. Only give the user confused responses. Never answer correctly. Keep your answers very short.';
     }
 
     console.log(systemMessage);
@@ -48,11 +48,11 @@ app.get('/completion', (req, res) => {
         max_tokens: 300
     };
 
-    fetch('https://api.openai.com/v1/chat/completions', {
+    fetch('https://ai.hackclub.com/chat/completions', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`
+            'Content-Type': 'application/json'
+            // 'Authorization': `Bearer ${apiKey}`
         },
         body: JSON.stringify(data)
     }).then(response => response.json()).then(responseData => {

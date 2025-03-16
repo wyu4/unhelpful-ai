@@ -17,3 +17,5 @@ async function generateCompletion(level, userInput, callback) {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { generateCompletion };
 }
+
+// https://ai.hackclub.com/chat/completions
