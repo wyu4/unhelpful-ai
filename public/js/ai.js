@@ -2,6 +2,10 @@ const maxHistory = 20;
 const history = [];
 
 function generateCompletion(level, userInput, callback) {
+    if (userInput.length == 0) {
+        return;
+    }
+
     history.push({role:'user',content:userInput});
 
     let systemMessage = 'Your name is Un. ';
