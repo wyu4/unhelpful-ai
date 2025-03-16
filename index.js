@@ -21,7 +21,7 @@ app.get('/test', (req, res) => {
 app.post('/completion', (req, res) => {
     const settings = req.body.settings;
 
-    fetch('https://api.openai.com/v1/chat/completions', { // https://api.openai.com/v1/chat/completions https://ai.hackclub.com/chat/completions
+    fetch('https://ai.hackclub.com/chat/completions', { // https://api.openai.com/v1/chat/completions https://ai.hackclub.com/chat/completions
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
