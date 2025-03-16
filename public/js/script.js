@@ -16,10 +16,10 @@ function submit() {
     generateCompletion(level, textField.value, (response) => {
         resultBox.value  = response;
         submitting = false;
-        if (level > 5) {
+        if (level > 4) {
             restartOverlay.style.display = 'flex';
         }
-        level += 0.2;
+        level += 0.33;
     });
 }
 //
