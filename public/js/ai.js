@@ -1,8 +1,12 @@
 const maxHistory = 20;
-const history = [];
+let history = [];
 
 function generateCompletion(level, userInput, callback) {
+    if (history.length >= maxHistory) {
+        history = history.slice(-maxHistory);
+    }
     history.push({role:'user',content:userInput});
+    console.log(history)
 
     let systemMessage = 'Your name is Un. ';
     let temperatureSetting = 0.8;
