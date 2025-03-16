@@ -1,6 +1,7 @@
 body{
     background-color: #757575;
     font-family: Arial, sans-serif;
+    margin: 0;
 }
 h1 {
     color: #ffffff;
@@ -15,6 +16,12 @@ form{
 .topnav{
     background-color: #0000a8;
     overflow: hidden;
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: right;
+    padding: 0;
+    margin:0;
 }
 
 .topnav label{
@@ -23,17 +30,20 @@ form{
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
-    float: left;
+    
 }
 
 .topnav button{
     background-color: #000000;
     color: white;
     text-align: right;
-    padding: 14px 16px;
+    padding: 8px 10px;
     text-decoration: none;
     font-size: 17px;
-    float: right;
     border: none;
     cursor: pointer;
+    border-radius: 10px;
+    margin-right: 2%;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
