@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
 body{
     background-color: #757575;
     font-family: Arial, sans-serif;
@@ -7,9 +9,11 @@ h1 {
     color: #ffffff;
     text-align: center;
 }
-form{
-    margin-top: 100px;
-    text-align: center;
+
+.textinput{
+    width:80%;
+    padding: 12px 20px;
+    margin: 8px 0;
 
 }
 
@@ -24,12 +28,14 @@ form{
     margin:0;
 }
 
+
 .topnav label{
     color: white;
     text-align: left;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    font-family: 'Poppins',sans-serif;
     
 }
 
@@ -44,5 +50,14 @@ form{
     cursor: pointer;
     border-radius: 10px;
     margin: 0.5% 1%;
+}
+
+.topnav button img{
+    width:20;
+    height:20px;
+}
+
+.topnav button:hover{
+    background-color:#757575
 }
 
