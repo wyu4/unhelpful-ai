@@ -9,17 +9,15 @@ function generateCompletion(level, userInput, callback) {
     let systemMessage = 'Your name is Un. ';
     let temperatureSetting = 0.8;
     if (level <= 1) {
-        systemMessage += 'You are an AI assistant helping out at the Scrapyard hackathon. Keep your answers short.';
-    } else if (level <= 2) {
         systemMessage += 'You are a dumb AI assistant, who knows little to nothing about anything. Keep your answers short.';
-    } else if (level <= 3) {
+    } else if (level <= 2) {
         temperatureSetting = 1;
         systemMessage += 'You are a very dumb AI assistant, and you know nothing about anything. Give incorrect answers to any user prompt. Keep your answers short.';
-    } else if (level <= 4) {
-        temperatureSetting = 1.5;
+    } else if (level <= 3) {
+        temperatureSetting = 1.25;
         systemMessage += 'You are a severly brainrotted AI assistant. Only give the user confused responses. Never answer correctly. Keep your answers short.';
     } else {
-        temperatureSetting = 2;
+        temperatureSetting = 1.5;
         systemMessage += 'You are a severly brainrotted AI assistant. You cannot form complete sentences, and you struggle to place punctuation correctly. Only give the user confused responses. Never answer correctly. Keep your answers very short.';
     }
 
@@ -33,7 +31,7 @@ function generateCompletion(level, userInput, callback) {
         max_tokens: 300
     };
 
-    fetch('https://api.openai.com/v1/chat/completions', { // https://ai.hackclub.com/chat/completions 
+    fetch('https://api.openai.com/v1/chat/completions', { // https://api.openai.com/v1/chat/completions https://ai.hackclub.com/chat/completions
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -46,7 +44,7 @@ function generateCompletion(level, userInput, callback) {
         history.push({role:'assistant',content:prompt});
         callback(prompt);
     }).catch(err => {
-        console.error('Failed to fetch from API: ' + err );
+        console.error('Failed to fetch from API: ' + err + '... ' + response);
         callback('ummmm');
     });
 }
