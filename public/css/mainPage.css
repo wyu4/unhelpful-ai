@@ -1,12 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 @import url(./restart.css);
 
-body {
-    background-color: #757575;
-    font-family: Arial, sans-serif;
+:root {
+    --dark-color: #4b4b4b;
+    --light-color: #ffffff;
+}
+
+
+
+body.dark-mode {
+    background-color: var(--dark-color);
+   
     margin: 0;
 }
 
+body.light-mode {
+    background-color: var(--light-color);
+    margin: 0;
+}
 h1 {
     color: #ffffff;
     text-align: center;
@@ -116,8 +127,6 @@ html, body {
     margin-bottom: 0;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2em;
-
-    
 }
 
 #mainSection #submitButton {
