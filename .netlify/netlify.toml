@@ -1,0 +1,30 @@
+functionsDirectory = "C:\\Users\\wilso\\OneDrive\\Documents\\HTML\\unhelpful-ai\\functions"
+functionsDirectoryOrigin = "config-v1"
+plugins = []
+headers = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "C:\\Users\\wilso\\OneDrive\\Documents\\HTML\\unhelpful-ai\\build"
+publishOrigin = "ui"
+commandOrigin = "ui"
+command = "npm run build"
+functions = "C:\\Users\\wilso\\OneDrive\\Documents\\HTML\\unhelpful-ai\\functions"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
