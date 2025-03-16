@@ -3,19 +3,20 @@
 
 :root {
     --dark-color: #4b4b4b;
-    --light-color: #ffffff;
+    --light-color: #eeeeee;
 }
-
 
 
 body.dark-mode {
     background-color: var(--dark-color);
+    transition: background-color 0.5s ease;
    
     margin: 0;
 }
 
 body.light-mode {
     background-color: var(--light-color);
+    transition: background-color 0.5s ease;
     margin: 0;
 }
 h1 {
@@ -69,6 +70,7 @@ html, body {
     align-items: center;
     justify-content: center;
     font-family: 'Poppins', sans-serif;
+    transition: background-color 0.5s ease;
 }
 
 *, *::before, *::after {
