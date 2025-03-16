@@ -3,15 +3,44 @@
 
 :root {
     --dark-color: #4b4b4b;
-    --light-color: #eeeeee;
+    --light-color: #dfdfdf;
 }
 
 
 body.dark-mode {
     background-color: var(--dark-color);
     transition: background-color 0.5s ease;
-   
     margin: 0;
+}
+
+body.dark-mode #mainSection #submitButton {
+    background-color: #313131;
+    color: #d2d0d0;
+}
+
+body.light-mode #mainSection #submitButton {
+    background-color: #dfdfdf;
+    color: #000000;
+}
+
+body.dark-mode #mainSection #textInput {
+    background-color: #313131;
+    color: #d2d0d0;
+}
+
+body.light-mode #mainSection #textInput {
+    background-color: #dfdfdf;
+    color: #000000;
+}
+
+
+body.light-mode #mainSection #aiText {
+    background-color: #dfdfdf;
+    color: #000000;
+}
+body.dark-mode #mainSection #aiText {
+    background-color: #313131;
+    color: #d2d0d0;
 }
 
 body.light-mode {
@@ -50,7 +79,7 @@ html, body {
     text-align: left;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -138,6 +167,7 @@ html, body {
     border-radius: 10px;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
+    margin-bottom:7%;
 }
 
 #mainSection #submitButton:hover {
