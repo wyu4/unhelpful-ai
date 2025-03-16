@@ -1,45 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-body{
+body {
     background-color: #757575;
     font-family: Arial, sans-serif;
     margin: 0;
 }
+
 h1 {
     color: #ffffff;
     text-align: center;
 }
 
-.textinput{
-    width:80%;
+.textinput {
+    width: 80%;
     padding: 12px 20px;
     margin: 8px 0;
-
+    border-radius: 10px;
 }
 
-.topnav{
+.topnav {
     background-color: #0000a8;
     overflow: hidden;
     width: 100%;
-    display:flex;
+    display: flex;
     justify-content: space-between;
-    align-items: right;
+    align-items: center; 
     padding: 0;
-    margin:0;
+    margin: 0;
 }
 
-
-.topnav label{
+.topnav label {
     color: white;
     text-align: left;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
-    font-family: 'Poppins',sans-serif;
-    
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
 }
 
-.topnav button{
+.topnav button {
     background-color: #ffffff;
     color: white;
     text-align: right;
@@ -50,14 +49,31 @@ h1 {
     cursor: pointer;
     border-radius: 10px;
     margin: 0.5% 1%;
+    width: 150px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
 }
 
-.topnav button img{
-    width:20;
-    height:20px;
+.topnav button img {
+    width: 20px; 
+    height: 20px; 
+    margin-top: 2px;
 }
 
-.topnav button:hover{
-    background-color:#757575
+.topnav button:hover {
+    background-color: #625f5f; 
+    color: #ffffff;
 }
 
+#mainSection {
+
+    font-family: 'Poppins', sans-serif;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
