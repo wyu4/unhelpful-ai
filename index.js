@@ -3,8 +3,8 @@ const path = require('path');
 const app = express();
 const port = 5000;
 
-console.log('Setting up dotenv...');
-require('dotenv').config({ path: __dirname + '/.env' });
+// console.log('Setting up dotenv...');
+// require('dotenv').config({ path: __dirname + '/.env' });
 
 console.log('Moving to public folder...');
 app.use(express.static(path.join(__dirname, "public")));
@@ -48,11 +48,11 @@ app.get('/completion', (req, res) => {
         max_tokens: 300
     };
 
-    fetch('https://api.openai.com/v1/chat/completions', {
+    fetch('https://ai.hackclub.com/chat/completions', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`
+            'Content-Type': 'application/json'
+            // 'Authorization': `Bearer ${apiKey}`
         },
         body: JSON.stringify(data)
     }).then(response => response.json()).then(responseData => {
