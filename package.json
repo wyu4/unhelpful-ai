@@ -4,6 +4,7 @@
   "description": "The AI Assistant that will be of help to you.",
   "main": "index.js",
   "scripts": {
+    "build": "netlify deploy --prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,7 +20,9 @@
   "dependencies": {
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "openai": "^4.87.3",
-    "path": "^0.12.7"
+    "netlify-cli": "^19.0.2",
+    "netlify-lambda": "^2.0.16",
+    "path": "^0.12.7",
+    "serverless-http": "^3.2.0"
   }
 }
