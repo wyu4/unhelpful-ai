@@ -38,24 +38,22 @@ app.get('/completion', (req, res) => {
         systemMessage += 'You are a severly brainrotted AI assistant. You cannot form complete sentences, and you struggle to place punctuation correctly. Only give the user confused responses. Never answer correctly. Keep your answers very short.';
     }
     
+    const history = req.body;
+    console.log(history);
+    history.push({
+        role: "system",
+        content: systemMessage,
+    });
+    
 
     const data = {
         model: "gpt-4o-mini",
-        messages: [
-            {
-                role: "system",
-                content: systemMessage,
-            },
-            {
-                role: "user",
-                content: prompt,
-            }
-        ],
+        messages: history,
         temperature: temperatureSetting,
         max_tokens: 300
     };
 
-    fetch('https://api.openai.com/v1/chat/completions', { // https://ai.hackclub.com/chat/completions
+    fetch('https://api.openai.com/v1/chat/completions', { // https://ai.hackclub.com/chat/completions 
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
