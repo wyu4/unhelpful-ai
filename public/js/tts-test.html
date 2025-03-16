@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expressive TTS</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        textarea, select, input, button { font-size: 16px; margin: 5px; padding: 10px; }
+    </style>
+</head>
+<body>
+
+    <h2>Expressive Text-to-Speech</h2>
+    <textarea id="textInput" placeholder="Type something expressive..." rows="4" cols="50"></textarea><br>
+
+    <label>Voice:</label>
+    <select id="voiceSelect"></select><br>
+
+    <label>Pitch:</label>
+    <input type="range" id="pitchControl" min="0.5" max="2" step="0.1" value="1">
+    <span id="pitchValue">1</span><br>
+
+    <label>Speed:</label>
+    <input type="range" id="speedControl" min="0.5" max="2" step="0.1" value="1">
+    <span id="speedValue">1</span><br>
+
+    <button onclick="speakText()">🔊 Speak</button>
+
+    <script>
+        const synth = window.speechSynthesis;
+        const voiceSelect = document.getElementById("voiceSelect");
+        const pitchControl = document.getElementById("pitchControl");
+        const speedControl = document.getElementById("speedControl");
+        const pitchValue = document.getElementById("pitchValue");
+        const speedValue = document.getElementById("speedValue");
+
+        function populateVoices() {
+            const voices = synth.getVoices();
+            voiceSelect.innerHTML = ""; // Clear previous list
+            voices.forEach((voice, index) => {
+                const option = document.createElement("option");
+                option.value = index;
+                option.textContent = `${voice.name} (${voice.lang})`;
+                voiceSelect.appendChild(option);
+            });
+        }
+
+        function speakText() {
+            const text = document.getElementById("textInput").value;
+            if (!text) return alert("Please enter some text!");
+
+            const utterance = new SpeechSynthesisUtterance(text);
+            const selectedVoice = synth.getVoices()[voiceSelect.value];
+            if (selectedVoice) utterance.voice = selectedVoice;
+
+            utterance.pitch = pitchControl.value; // Adjust pitch
+            utterance.rate = speedControl.value; // Adjust speed
+
+            // Simulate pauses and emphasis
+            utterance.text = text.replace(/\./g, "...").replace(/!/g, "!!!");
+
+            synth.speak(utterance);
+        }
+
+        // Update pitch and speed values in real-time
+        pitchControl.addEventListener("input", () => pitchValue.textContent = pitchControl.value);
+        speedControl.addEventListener("input", () => speedValue.textContent = speedControl.value);
+
+        // Populate voices when they load
+        populateVoices();
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+            speechSynthesis.onvoiceschanged = populateVoices;
+        }
+    </script>
+
+</body>
+</html>

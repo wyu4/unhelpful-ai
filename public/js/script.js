@@ -11,7 +11,7 @@ let level = 1.0;
 function submit() {
     if (submitting) return;
     submitting = true;
-    generateCompletion(level, textField.value, (response) => {resultBox.value  = response; level += 0.3; submitting = false;});
+    generateCompletion(level, textField.value, (response) => {resultBox.value  = response; level += 0.2; submitting = false;});
 }
 
 submitButton.addEventListener('click', submit);
