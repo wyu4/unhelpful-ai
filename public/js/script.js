@@ -1,7 +1,7 @@
 // const { generateCompletion } = require("./ai");
 
 const textField = document.getElementById('textInput');
-const submitButton = document.getElementById('hiddenSubmitButton');
+const submitButton = document.getElementById('submitButton');
 const resultBox = document.getElementById('aiText');
 
 let submitting = false;
