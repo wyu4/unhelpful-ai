@@ -3,96 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expressive TTS</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-        textarea, select, input, button { font-size: 16px; margin: 5px; padding: 10px; }
-    </style>
+    <title>Random Emotion TTS</title>
+    <script defer src="tts-test.js"></script> <!-- Load JS properly -->
 </head>
 <body>
 
-    <h2>Expressive Text-to-Speech</h2>
-    <textarea id="textInput" placeholder="Type something expressive..." rows="4" cols="50"></textarea><br>
-
-    <label>Voice:</label>
-    <select id="voiceSelect"></select><br>
-
-    <label>Emotion:</label>
-    <select id="emotionSelect">
-        <option value="neutral">Neutral</option>
-        <option value="happy">😊 Happy</option>
-        <option value="sad">😢 Sad</option>
-        <option value="angry">😡 Angry</option>
-        <option value="robotic">🤖 Robotic</option>
-        <option value="whisper">🤫 Whisper</option>
-    </select><br>
-
-    <button onclick="speakText()">🔊 Speak</button>
+    <h2>Random Emotion Text-to-Speech</h2>
+    <textarea id="textInput" placeholder="Type something here..." rows="4" cols="50"></textarea><br>
+    <button onclick="speak()">🔊 Speak Random Emotion</button>
 
     <script>
-        const synth = window.speechSynthesis;
-        const voiceSelect = document.getElementById("voiceSelect");
-        const emotionSelect = document.getElementById("emotionSelect");
-
-        function populateVoices() {
-            const voices = synth.getVoices();
-            voiceSelect.innerHTML = ""; // Clear previous list
-            voices.forEach((voice, index) => {
-                const option = document.createElement("option");
-                option.value = index;
-                option.textContent = `${voice.name} (${voice.lang})`;
-                voiceSelect.appendChild(option);
-            });
-        }
-
-        function speakText() {
-            const text = document.getElementById("textInput").value;
-            if (!text) return alert("Please enter some text!");
-
-            const utterance = new SpeechSynthesisUtterance(text);
-            const selectedVoice = synth.getVoices()[voiceSelect.value];
-            if (selectedVoice) utterance.voice = selectedVoice;
-
-            // Apply different emotions
-            const emotion = emotionSelect.value;
-            switch (emotion) {
-                case "happy":
-                    utterance.rate = 1.3;
-                    utterance.pitch = 1.5;
-                    utterance.text = text.replace(/!/g, "!!!"); // More excitement
-                    break;
-                case "sad":
-                    utterance.rate = 0.7;
-                    utterance.pitch = 0.8;
-                    utterance.text = text.replace(/\./g, "..."); // Slower and more dramatic
-                    break;
-                case "angry":
-                    utterance.rate = 1.0;
-                    utterance.pitch = 1.0;
-                    utterance.text = text.toUpperCase() + "!!"; // Emphasized anger
-                    break;
-                case "robotic":
-                    utterance.rate = 0.9;
-                    utterance.pitch = 1.0;
-                    utterance.text = text.split("").join(" "); // Spaced out words
-                    break;
-                case "whisper":
-                    utterance.rate = 0.6;
-                    utterance.pitch = 0.8;
-                    utterance.volume = 0.4; // Lower volume
-                    break;
-                default:
-                    utterance.rate = 1.0;
-                    utterance.pitch = 1.0;
-            }
-
-            synth.speak(utterance);
-        }
-
-        // Populate voices when they load
-        populateVoices();
-        if (speechSynthesis.onvoiceschanged !== undefined) {
-            speechSynthesis.onvoiceschanged = populateVoices;
+        function speak() {
+            let text = document.getElementById("textInput").value;
+            speakWithEmotion(text);
         }
     </script>
 
