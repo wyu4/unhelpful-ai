@@ -23,6 +23,7 @@
     "@types/express": "^5.0.0",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "node-fetch": "^3.3.2",
     "path": "^0.12.7",
     "serverless-http": "^3.2.0"
   },

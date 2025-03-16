@@ -9,7 +9,7 @@ redirects = []
 [functions."*"]
 
 [build]
-publish = "C:\\Users\\wilso\\OneDrive\\Documents\\HTML\\unhelpful-ai\\build"
+publish = "C:\\Users\\wilso\\OneDrive\\Documents\\HTML\\unhelpful-ai\\public"
 publishOrigin = "ui"
 commandOrigin = "ui"
 command = "npm run build"

@@ -18,25 +18,24 @@ app.get('/test', (req, res) => {
     res.send('This is a test. If you\'re seeing this, it worked!');
 })
 
-app.post('/completion', (req, res) => {
-    const settings = req.body.settings;
+// app.post('/completion', (req, res) => {
+//     const settings = req.body.settings;
 
-    fetch('https://api.openai.com/v1/chat/completions', { // https://api.openai.com/v1/chat/completions https://ai.hackclub.com/chat/completions
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + process.env.SCRAPYARD_KEY
-        },
-        body: settings
-    }).then(response => response.json()).then(responseData => {
-        console.log(responseData);
-        res.send(responseData);
-    }).catch(error => {
-        console.error('Error:', error);
-        res.status(500).send({ error: 'Failed to fetch from OpenAI API' });
-    });
-});
-
+//     fetch('https://api.openai.com/v1/chat/completions', { // https://api.openai.com/v1/chat/completions https://ai.hackclub.com/chat/completions
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Authorization': 'Bearer ' + process.env.SCRAPYARD_KEY
+//         },
+//         body: settings
+//     }).then(response => response.json()).then(responseData => {
+        
+//         res.send(responseData);
+//     }).catch(error => {
+//         console.error('Error:', error);
+//         res.status(500).send({ error: 'Failed to fetch from OpenAI API' });
+//     });
+// });
 console.log('Pushing main page');
 app.get('/', function (req, res) {
     res.sendFile('index.html', { root: __dirname })
