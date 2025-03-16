@@ -11,21 +11,23 @@ h1 {
     text-align: center;
 }
 
-#mainSection.aiText{
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 5%;
-    width:80%;
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
 }
+
+
+
 
 #mainSection.textinput {
     width: 80%;
     padding: 12px 20px;
     margin: 8px 0;
     border-radius: 10px;
+    
 }
 
 .topnav {
@@ -37,6 +39,7 @@ h1 {
     align-items: center; 
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 .topnav label {
@@ -66,6 +69,10 @@ h1 {
     font-family: 'Poppins', sans-serif;
 }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 .topnav button img {
     width: 20px; 
     height: 20px; 
@@ -87,4 +94,14 @@ h1 {
     flex-direction: column;
     margin-top: 5%;
 
+}
+#aiText {
+    resize: none; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5%;
+    width:80%;
+    
 }
