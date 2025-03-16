@@ -1,14 +1,13 @@
-const express = require("express");
-const path = require("path");
-const serverless = require("serverless-http");
+const express = require('express');
+const path = require('path');
 const app = express();
-const router = express.Router();
+const port = 5000;
 
 console.log('Setting up dotenv...');
 require('dotenv').config({ path: __dirname + '/.env' });
 
 console.log('Moving to public folder...');
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "../public")));
 
 
 app.use(express.json());
@@ -38,10 +37,11 @@ app.post('/completion', (req, res) => {
     });
 });
 
-router.get("/", (req, res) => {
-    res.sendFile("index.html");
-});
+console.log('Pushing main page');
+app.get('/', function (req, res) {
+    res.sendFile('index.html', { root: __dirname })
+})
 
-console.log('Using router...');
 app.use("/.netlify/functions/app", router);
+
 module.exports.handler = serverless(app);
