@@ -12,3 +12,6 @@ npm install
 node index.js
 ```
 4) Open the website [here](http://localhost:5000/).
+
+## Secrets
+Please set the environment variable `SCRAPYARD_KEY` to your OpenAI API key.
