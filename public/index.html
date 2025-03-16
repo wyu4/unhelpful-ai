@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unhelpful Assistant</title>
     <link rel="stylesheet" href="./css/mainPage.css">
+    <script src="./js/ai.js"></script>
 </head>
 <body>
     <a href="./ai-test.html">Go to test</a>
@@ -16,18 +17,17 @@
         </div>
     </button>
     </div>
-    <script>
-        window.onload = function() {
-            document.addEventListener("keydown", function(event) {
-            if (event.key === "ArrowUp") {  // Check if the Enter key is pressed
-                alert("Enter key was pressed!");
-            }
-    });
-};
-    </script> 
-    <form>
+
+    <div class="container">
+        <textarea id="aiText" name="aiText" rows="10" cols="50" readonly>
+
+        </textarea>
+    </div>
+
         <input type="text" id="textInput" name="fname"><br><br>
-        <input type="submit" id="hiddenSubmitButton" value="Submit" style="display: none;">
-        </form>
+        <input type="submit" id="hiddenSubmitButton" value="Submit">
+
+    <script src="./js/script.js"></script>
+        
 </body>
 </html>
