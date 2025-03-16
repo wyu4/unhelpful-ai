@@ -34,7 +34,7 @@ form{
 }
 
 .topnav button{
-    background-color: #000000;
+    background-color: #ffffff;
     color: white;
     text-align: right;
     padding: 8px 10px;
@@ -43,7 +43,6 @@ form{
     border: none;
     cursor: pointer;
     border-radius: 10px;
-    margin-right: 2%;
-    margin-top: 2px;
-    margin-bottom: 2px;
+    margin: 0.5% 1%;
 }
+
