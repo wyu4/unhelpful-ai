@@ -7,7 +7,9 @@ async function generateCompletion(level, userInput, callback) {
             'prompt': `${userInput}`
         }
     }).then(response => response.json()).then(data => {
-        callback(data.choices[0].message.content);
+        const prompt = data.choices[0].message.content;
+        console.log('\n------------------------------------------------------------------\nUsers: ' + userInput + '\nAI: ' + prompt + '\n------------------------------------------------------------------\n');
+        callback(prompt);
     }).catch(error => {
         console.error('Error:', error);
         callback('ummmm');
