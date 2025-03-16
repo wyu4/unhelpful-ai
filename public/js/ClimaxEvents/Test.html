@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screenshot Overlay</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    #content {
+      padding: 20px;
+      background: lightblue;
+      border: 2px solid navy;
+    }
+
+    #screenshot-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      display: none; /* Initially hidden */
+      justify-content: center;
+      align-items: center;
+    }
+
+    #screenshot-overlay img {
+      max-width: 200%;
+      max-height: 100%;
+      border: 5px solid white;
+      box-shadow: 0px 0px 10px black;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="content">
+    <h1>My Webpage</h1>
+    <p>This is an example of how to take a screenshot and display it as an overlay.</p>
+    <img src="https://th.bing.com/th/id/R.0be7c7387c71d5b8540f1a225251fc3f?rik=5HtkzgCH2%2bfD8w&pid=ImgRaw&r=0" alt="Placeholder Image">
+  </div>
+
+  <button id="capture">Take Screenshot</button>
+  <button id="remove">Remove Screenshot</button>
+
+  <div id="screenshot-overlay">
+    <img id="screenshot-img" src="" alt="Screenshot">
+  </div>
+
+  <script>
+    document.getElementById('capture').addEventListener('click', function () {
+      html2canvas(document.body).then(canvas => {
+        let imgData = canvas.toDataURL(); // Convert to image
+        document.getElementById('screenshot-img').src = imgData;
+        document.getElementById('screenshot-overlay').style.display = 'flex';
+      }).catch(err => console.error("Screenshot failed:", err));
+    });
+
+    document.getElementById('remove').addEventListener('click', function () {
+      document.getElementById('screenshot-overlay').style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>
