@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="UTF-8">
-<title>Unhelpful AI</title>
-<link rel="stylesheet" href="./css/mainPage.css">
-
-   <!--Bar at the top for label and button-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unhelpful Assistant</title>
+    <link rel="stylesheet" href="./css/mainPage.css">
+</head>
+<body>
     <div class="topnav">
         <label for="cornerLabel">Unhelpful Assistant</label>
         <button id="cornerButton">Mode</button>
     </div>
-    <body>
-        <!--Text input for user to input their prompts-->
-        <form>
+    <form>
         <input type="text" id="textInput" name="fname"><br><br>
-        <input type="submit" value="Submit" style="display: none;">
+        <input type="submit" id="hiddenSubmitButton" value="Submit" style="display: none;">
         </form>
-    </body>
-
+</body>
 </html>
