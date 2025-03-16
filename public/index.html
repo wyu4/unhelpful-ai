@@ -85,7 +85,14 @@
 </head>
 
 <body>
-    <div class="topnav">
+    <div class="overlay" id="restart">
+        <span id="popup">
+            <h2>This session was terminated. Please restart.</h2>
+            <a href="./index.html"><button>refresh</button></a>
+        </span>
+    </div>
+
+    <div class="topnav content">
         <label for="cornerLabel">Unhelpful Assistant</label>
         <button id="cornerButton">
             <div>
@@ -147,7 +154,7 @@
             }
         });
     </script>
-    <section id="mainSection">
+    <section class="content" id="mainSection">
         <div class="container">
             <textarea id="aiText" name="aiText" rows="10" cols="50" readonly></textarea>
         </div>
@@ -158,9 +165,7 @@
 
     </section>
 
-    <div class="overlay" id="">
-        
-    </div>
+    
 
     <script src="./js/script.js"></script>
 </body>

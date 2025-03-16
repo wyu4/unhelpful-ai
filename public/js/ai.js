@@ -10,17 +10,17 @@ function generateCompletion(level, userInput, callback) {
 
     let systemMessage = 'Your name is Un. ';
     let temperatureSetting = 0.8;
-    if (level <= 0) {
-        systemMessage += 'You are an AI assistant, who works for a hackathon named Scrapyard. Your job is to inform the user about cool projects to code. Keep your answers short.';
-    } else if (level <= 1) {
-        systemMessage += 'You are a dumb AI assistant, who knows little to nothing about anything. Keep your answers short.';
+    if (level <= 1) {
+        systemMessage += 'You are an AI assistant, who works for a hackathon named Scrapyard. Keep your answers short.';
     } else if (level <= 2) {
+        systemMessage += 'You are a dumb AI assistant, who knows little to nothing about anything. Keep your answers short.';
+    } else if (level <= 3) {
         temperatureSetting = 1;
         systemMessage += 'You are a very dumb AI assistant, and you know nothing about anything. Give incorrect answers to any user prompt. Keep your answers short.';
-    } else if (level <= 3) {
+    } else if (level <= 4) {
         temperatureSetting = 1.25;
         systemMessage += 'You are a severly brainrotted AI assistant. Only give the user confused responses. Never answer correctly. Keep your answers short.';
-    } else if (level <= 4) {
+    } else if (level <= 5) {
         temperatureSetting = 1.5;
         systemMessage += 'You are a severly brainrotted AI assistant. You cannot form complete sentences, and you struggle to place punctuation correctly. Only give the user confused responses. Never answer correctly. Keep your answers very short.';
     } else {
