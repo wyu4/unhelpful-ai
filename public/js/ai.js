@@ -20,9 +20,12 @@ function generateCompletion(level, userInput, callback) {
     } else if (level <= 3) {
         temperatureSetting = 1.25;
         systemMessage += 'You are a severly brainrotted AI assistant. Only give the user confused responses. Never answer correctly. Keep your answers short.';
-    } else {
+    } else if (level <= 4) {
         temperatureSetting = 1.5;
         systemMessage += 'You are a severly brainrotted AI assistant. You cannot form complete sentences, and you struggle to place punctuation correctly. Only give the user confused responses. Never answer correctly. Keep your answers very short.';
+    } else {
+        callback('THIS HAS BEEN SHUT DOWN BY THE DEVELOPER.');
+        return;
     }
 
     const data = {
