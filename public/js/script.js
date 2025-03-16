@@ -6,7 +6,7 @@ const resultBox = document.getElementById('aiText');
 
 let submitting = false;
 
-let level = 1.0;
+let level = 0.0;
 
 function submit() {
     if (submitting) return;
