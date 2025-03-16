@@ -28,7 +28,7 @@ app.get('/completion', (req, res) => {
     } else if (level <= 3) {
         systemMessage = 'You are a very dumb AI assistant, and you know nothing about anything. Give incorrect answers to any user prompt. Keep your answers short.';
     } else {
-        systemMessage = 'Only give the user confused responses. Never answer correctly. Keep your answers very short.';
+        systemMessage = 'You are a severly brainrotted AI assistant. Only give the user confused responses. Never answer correctly. Keep your answers very short.';
     }
 
     console.log(systemMessage);
