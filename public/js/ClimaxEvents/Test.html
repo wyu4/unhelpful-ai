@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fullscreen Screenshot Overlay</title>
+  <title>Screenshot with Gaussian Blur (Class Version)</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <style>
     body {
@@ -24,14 +24,16 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      display: none; /* Initially hidden */
-      z-index: 9999; /* Ensure it's above everything */
+      display: none;
+      z-index: 9999;
+      overflow: hidden;
     }
 
     #screenshot-img {
-      width: 100vw;  /* Full viewport width */
-      height: 100vh; /* Full viewport height */
-      object-fit: cover; /* Ensures the image fills the screen */
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      filter: blur(10px); /* Gaussian Blur */
     }
 
     button {
@@ -46,8 +48,8 @@
 
   <div id="content">
     <h1>My Webpage</h1>
-    <p>This is an example of how to take a fullscreen screenshot.</p>
-    <img src="https://th.bing.com/th/id/R.0be7c7387c71d5b8540f1a225251fc3f?rik=5HtkzgCH2%2bfD8w&pid=ImgRaw&r=0" alt="Placeholder Image">
+    <p>This is an example of taking a screenshot and adding a blur effect using a JavaScript class.</p>
+    <img src="https://i.pinimg.com/originals/d1/e7/3b/d1e73b5e607862c67d0d3373ec73e211.gif" alt="Placeholder Image">
   </div>
 
   <button id="capture">Take Screenshot</button>
@@ -58,20 +60,35 @@
   </div>
 
   <script>
-    document.getElementById('capture').addEventListener('click', function () {
-      html2canvas(document.body, {
-        windowWidth: window.innerWidth,
-        windowHeight: window.innerHeight
-      }).then(canvas => {
-        let imgData = canvas.toDataURL();
-        document.getElementById('screenshot-img').src = imgData;
-        document.getElementById('screenshot-overlay').style.display = 'block';
-      }).catch(err => console.error("Screenshot failed:", err));
-    });
+    class ScreenshotBlur {
+      constructor(blurAmount = 10) {
+        this.overlay = document.getElementById('screenshot-overlay');
+        this.img = document.getElementById('screenshot-img');
+        this.blurAmount = blurAmount;
+      }
 
-    document.getElementById('remove').addEventListener('click', function () {
-      document.getElementById('screenshot-overlay').style.display = 'none';
-    });
+      takeScreenshot() {
+        html2canvas(document.body, {
+          windowWidth: window.innerWidth,
+          windowHeight: window.innerHeight
+        }).then(canvas => {
+          this.img.src = canvas.toDataURL();
+          this.img.style.filter = `blur(${this.blurAmount}px)`;
+          this.overlay.style.display = 'block';
+        }).catch(err => console.error("Screenshot failed:", err));
+      }
+
+      removeScreenshot() {
+        this.overlay.style.display = 'none';
+      }
+    }
+
+    // Create an instance of ScreenshotBlur
+    const screenshotBlur = new ScreenshotBlur(10); // Blur amount = 10px
+
+    // Button Event Listeners
+    document.getElementById('capture').addEventListener('click', () => screenshotBlur.takeScreenshot());
+    document.getElementById('remove').addEventListener('click', () => screenshotBlur.removeScreenshot());
   </script>
 
 </body>
