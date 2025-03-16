@@ -9,29 +9,141 @@
     <title>Unhelpful Assistant</title>
     <link rel="stylesheet" href="./css/mainPage.css">
     <script src="./js/ai.js"></script>
+    <script src="./js/loadingdelay.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          text-align: center;
+          padding: 0px;
+        }
+    
+        #content {
+          padding: 20px;
+          background: lightblue;
+          border: 2px solid navy;
+        }
+    
+        #screenshot-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          display: none;
+          z-index: 9999;
+          overflow: hidden;
+        }
+    
+        #screenshot-img {
+          width: 100vw;
+          height: 100vh;
+          object-fit: cover;
+          filter: blur(10px); /* Gaussian Blur */
+        }
+    
+        button {
+          margin-top: 20px;
+          padding: 10px 20px;
+          font-size: 16px;
+          cursor: pointer;
+        }
+    
+        /* Loading Animation */
+        .loading-spinner {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 50px;
+          height: 50px;
+          border: 5px solid #f3f3f3;
+          border-top: 5px solid #3498db;
+          border-radius: 50%;
+          animation: spin 1s linear infinite;
+          display: none;
+          z-index: 10000;
+        }
+    
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
-<section id="topBar">
 <body>
-    <a href="./ai-test.html">Go to test</a>
     <div class="topnav">
         <label for="cornerLabel">Unhelpful Assistant</label>
-    <button id="cornerButton">
-        <div>
-            <img src="./pictures/moonPNG.png" alt="NOOOOO" id="moonPic">
-        </div>
-    </button>
+        <button id="cornerButton">
+            <div>
+                <img src="./pictures/moonPNG.png" alt="NOOOOO" id="moonPic">
+            </div>
+        </button>
     </div>
-</section>
+    <div id="screenshot-overlay">
+        <img id="screenshot-img" alt="Screenshot">
+    </div>
+    <div id="loading-spinner" class="loading-spinner"></div>
+    <script>
+    class ScreenshotBlur {
+        constructor(blurAmount = 10) {
+            this.overlay = document.getElementById('screenshot-overlay');
+            this.img = document.getElementById('screenshot-img');
+            this.blurAmount = blurAmount;
+            this.loader = document.getElementById('loading-spinner');
+        }
+
+        takeScreenshot() {
+            html2canvas(document.body, {
+                windowWidth: window.innerWidth,
+                windowHeight: window.innerHeight
+            }).then(canvas => {
+                this.img.src = canvas.toDataURL();
+                this.img.style.filter = `blur(${this.blurAmount}px)`;
+                this.overlay.style.display = 'block';
+                this.showLoader(); // Show loading animation
+
+                // Wait for 20 seconds and then remove the screenshot
+                setTimeout(() => {
+                    this.removeScreenshot();
+                    this.hideLoader(); // Hide loading animation
+                }, 2000); // 20000 milliseconds = 20 seconds
+            }).catch(err => {
+                console.error("Screenshot failed:", err);
+                this.hideLoader();
+            });
+        }
+
+        showLoader() {
+            this.loader.style.display = 'block';
+        }
+
+        hideLoader() {
+            this.loader.style.display = 'none';
+        }
+
+        removeScreenshot() {
+            this.overlay.style.display = 'none';
+        }
+    }
+
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {  // Check if the Enter key is pressed
+            const pauseScreen = new ScreenshotBlur(10);
+            pauseScreen.takeScreenshot();
+        }
+    });
+    </script>
 <section id="mainSection">
     <div class="container">
-        <textarea id="aiText" name="aiText" rows="10" cols="50" readonly>
-        </textarea>
+        <textarea id="aiText" name="aiText" rows="10" cols="50" readonly></textarea>
     </div>
-        <input type="text" id="textInput" name="fname"><br><br>
-        <input type="submit" id="hiddenSubmitButton" value="Submit">
+
+    <input type="text" id="textInput" name="fname"><br><br>
+    <input type="submit" id="hiddenSubmitButton" value="Submit">
+
 </section>
 
     <script src="./js/script.js"></script>
-        
 </body>
 </html>
