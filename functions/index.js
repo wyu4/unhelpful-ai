@@ -1,7 +1,8 @@
 const express = require('express');
 const path = require('path');
+const serverless = require("serverless-http");
 const app = express();
-const port = 5000;
+const router = express.Router();
 
 console.log('Setting up dotenv...');
 require('dotenv').config({ path: __dirname + '/.env' });
@@ -42,8 +43,11 @@ app.get('/', function (req, res) {
     res.sendFile('index.html', { root: __dirname })
 })
 
-app.listen(port, () => {
-    console.log(`Now listening to http://localhost:${port}`);
-});
+// app.listen(port, () => {
+//     console.log(`Now listening to http://localhost:${port}`);
+// });
 
 // To start, run 'node index.js'
+
+app.use("/.netlify/functions/app", router);
+module.exports.handler = serverless(app);
