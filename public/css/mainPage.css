@@ -112,7 +112,23 @@ html, body {
     border-radius: 10px;
     margin-left: 0;
     margin-right: 0;
+    margin-bottom: 0;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: small;
+    font-size: 2em;
+
     
+}
+
+#mainSection #submitButton {
+    
+    width: 10vw;
+    height:5vh;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+#mainSection #submitButton:hover {
+    background-color: #625f5f; 
+    color: #ffffff;
 }
