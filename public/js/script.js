@@ -2,7 +2,7 @@
 
 const textField = document.getElementById('textInput');
 const submitButton = document.getElementById('hiddenSubmitButton');
-const resultBox = document.getElementById('result-p');
+const resultBox = document.getElementById('aiText');
 
 let submitting = false;
 
