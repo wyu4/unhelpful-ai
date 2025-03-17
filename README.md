@@ -7,11 +7,14 @@ The Unhelpful AI Assistant, at your service!
 ```bash
 npm install
 ```
-3) Run the server
+2) Install Netlify
 ```bash
-node index.js
+npm install -g netlify-cli
 ```
-4) Open the website [here](http://localhost:5000/).
+4) Run the server
+```bash
+netlify dev
+```
 
 ## Secrets
 Please set the environment variable `SCRAPYARD_KEY` to your OpenAI API key.

@@ -36,7 +36,7 @@ function generateCompletion(level, userInput, callback) {
         max_tokens: 300
     };
 
-    fetch('/completion', {
+    fetch('/.netlify/functions/app/completion', {
         method:'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -51,7 +51,7 @@ function generateCompletion(level, userInput, callback) {
         callback(prompt);
     }).catch(err => {
         console.error('Failed to fetch from API: ' + err);
-        callback('ummmm');
+        callback('error');
     });;
 }
 
