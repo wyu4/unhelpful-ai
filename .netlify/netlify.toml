@@ -1,5 +1,5 @@
-functionsDirectory = "C:\\Users\\wilso\\OneDrive\\Documents\\HTML\\unhelpful-ai\\functions"
-functionsDirectoryOrigin = "config-v1"
+functionsDirectory = "C:\\Stuff\\Wilson\\unhelpful-ai\\functions"
+functionsDirectoryOrigin = "config"
 plugins = []
 headers = []
 redirects = []
@@ -7,13 +7,14 @@ redirects = []
 [functions]
 
 [functions."*"]
+node_bundler = "esbuild"
 
 [build]
-publish = "C:\\Users\\wilso\\OneDrive\\Documents\\HTML\\unhelpful-ai\\public"
+publish = "C:\\Stuff\\Wilson\\unhelpful-ai\\public"
 publishOrigin = "ui"
-commandOrigin = "ui"
+commandOrigin = "config"
 command = "npm run build"
-functions = "C:\\Users\\wilso\\OneDrive\\Documents\\HTML\\unhelpful-ai\\functions"
+functions = "C:\\Stuff\\Wilson\\unhelpful-ai\\functions"
 
 [build.environment]
 

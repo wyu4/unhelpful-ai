@@ -4,8 +4,8 @@
   "description": "The AI Assistant that will be of help to you.",
   "main": "functions/app.js",
   "scripts": {
-    "start": "node  functions/app.js",
-    "build": "netlify deploy --prod",
+    "start": "netlify dev",
+    "build": "echo No building needed for Express App",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
