@@ -15,6 +15,3 @@ npm install -g netlify-cli
 ```bash
 netlify dev
 ```
-
-## Secrets
-Please set the environment variable `SCRAPYARD_KEY` to your OpenAI API key.
