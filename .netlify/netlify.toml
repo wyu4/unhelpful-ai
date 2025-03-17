@@ -1,0 +1,31 @@
+functionsDirectory = "C:\\Stuff\\Wilson\\unhelpful-ai\\functions"
+functionsDirectoryOrigin = "config"
+plugins = []
+headers = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+node_bundler = "esbuild"
+
+[build]
+publish = "C:\\Stuff\\Wilson\\unhelpful-ai\\public"
+publishOrigin = "ui"
+commandOrigin = "config"
+command = "npm run build"
+functions = "C:\\Stuff\\Wilson\\unhelpful-ai\\functions"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]

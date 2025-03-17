@@ -2,8 +2,10 @@
   "name": "unhelpful-ai",
   "version": "1.0.0",
   "description": "The AI Assistant that will be of help to you.",
-  "main": "index.js",
+  "main": "functions/app.js",
   "scripts": {
+    "start": "netlify dev",
+    "build": "echo No building needed for Express App",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,8 +19,15 @@
   },
   "homepage": "https://github.com/wyu4/unhelpful-ai#readme",
   "dependencies": {
+    "@netlify/functions": "^3.0.1",
+    "@types/express": "^5.0.0",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "path": "^0.12.7"
+    "node-fetch": "^3.3.2",
+    "path": "^0.12.7",
+    "serverless-http": "^3.2.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^19.0.2"
   }
 }
