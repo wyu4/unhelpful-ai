@@ -27,7 +27,6 @@ function generateCompletion(level, userInput, callback) {
     }
 
     const data = {
-        model: "gpt-4o-mini",
         messages: history.concat([{
             role: "system",
             content: systemMessage,
