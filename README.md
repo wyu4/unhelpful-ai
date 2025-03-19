@@ -1,5 +1,6 @@
 # The UnHelpful AI
-The Unhelpful AI Assistant, at your service!
+The Unhelpful AI Assistant, at your service! <br>
+This was made for the [Scrapyard](https://scrapyard.hackclub.com/) Hackathon.
 
 ## How to run
 1) Install Node.js / npm [here](https://nodejs.org/en/download).
@@ -7,11 +8,7 @@ The Unhelpful AI Assistant, at your service!
 ```bash
 npm install
 ```
-2) Install Netlify
+2) Run the server
 ```bash
-npm install -g netlify-cli
-```
-4) Run the server
-```bash
-netlify dev
+npm start
 ```

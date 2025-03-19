@@ -4,19 +4,14 @@ const serverless = require('serverless-http'); // Make sure to include this!
 const app = express();
 const router = express.Router();
 
-console.log('Setting up dotenv...');
-require('dotenv').config({ path: __dirname + '/.env' });
-
-console.log('Moving to public folder...');
+// Move to the public folder
 app.use(express.static(path.join(__dirname, "../public")));
 
+// Use Express to parse JSON content
 app.use(express.json());
 
-console.log('Setting up OpenAI client...');
-router.get('/test', (req, res) => {
-    res.send("This is a test. If you're seeing this, it worked!");
-});
 
+// AI API
 router.post('/completion', (req, res) => {
     const settings = req.body.settings;
 
@@ -39,11 +34,6 @@ router.post('/completion', (req, res) => {
 
 // Attach the router to the Express app
 app.use("/.netlify/functions/app", router);
-
-// console.log('Pushing main page');
-// app.get('/', (req, res) => {
-//     res.sendFile('index.html', { root: __dirname });
-// });
 
 // Export the handler for Netlify
 module.exports.handler = serverless(app);
