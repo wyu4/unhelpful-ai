@@ -19,7 +19,7 @@ function submit() {
         if (level > 4) {
             restartOverlay.style.display = 'flex';
         }
-        level += 0.33;
+        level += 0.2;
     });
 }
 //
