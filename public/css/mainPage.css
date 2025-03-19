@@ -43,11 +43,22 @@ body.dark-mode #mainSection #aiText {
     color: #d2d0d0;
 }
 
+body.light-mode #github {
+    color:#505e6d
+}
+
+body.dark-mode #github {
+    color:#b4d4f6
+}
+
 body.light-mode {
     background-color: var(--light-color);
-    transition: background-color 0.5s ease;
-    margin: 0;
 }
+
+body {
+    transition: background-color 0.5s ease;
+}
+
 h1 {
     color: #ffffff;
     text-align: center;
