@@ -1,6 +1,6 @@
 .overlay {
     position: fixed; /* Sit on top of the page content */
-    display: none; /* Hidden by default */
+    display: flex; /* Hidden by default */
     width: 100%; /* Full width (cover the whole page) */
     height: 100%; /* Full height (cover the whole page) */
     top: 0;
@@ -25,7 +25,8 @@
 }
 
 #restart button{
-    width: 10vw;
+    margin-left: 40vw;
+    margin-right: 40vw;
     height:5vh;
     border-radius: 10px;
     cursor: pointer;
