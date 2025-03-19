@@ -1,17 +1,10 @@
 # The UnHelpful AI
-The Unhelpful AI Assistant, at your service! <br>
-<a href="https://unhelpful-ai.netlify.app/" target="_blank"><img src="./public/pictures/scrappyFavicon.png" style="border-radius: 1vw;" width="40%"></a> <br>
-Watch as Un, your Scrapyard assistant, slowly deteriorate and say unhelpful things. <br>
+The Unhelpful AI Assistant, at your service! Watch as Un, your Scrapyard assistant, slowly deteriorate and say unhelpful things. <br><br>
+<a href="https://unhelpful-ai.netlify.app/" target="_blank" title="Live Demo"><img src="./public/pictures/scrappyFavicon.png" width=40%></a> <br>
 
 ## Contributors
-<a href="https://github.com/wyu4" target="_blank">
-    <img src="https://avatars.githubusercontent.com/u/139521392?v=4" style="border-radius: 100%;" width="20%">
-</a>
-<a href="https://github.com/chairzihan" target="_blank">
-    <img src="https://avatars.githubusercontent.com/u/146217784?v=4" style="border-radius: 100%;" width="20%">
-</a>
-<a href="https://github.com/rockpaperscissorshoot" target="_blank">
-    <img src="https://avatars.githubusercontent.com/u/71882612?v=4" style="border-radius: 100%;" width="20%">
+<a href="https://github.com/wyu4/unhelpful-ai/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=wyu4/unhelpful-ai" />
 </a>
 
 *This was made for the [Scrapyard](https://scrapyard.hackclub.com/) Hackathon.*
